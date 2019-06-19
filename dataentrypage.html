@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div style="position: absolute; width: 700px; height: 200px; z-index: 15; top: 25%; left: 20%; margin: -100px 0 0 -150px;">
+        <form action="" method="POST">
+
+<TABLE width="800">
+<TR>
+
+<TD width="150">
+        	<b>Period:</b>
+        	<input id="t" name="t" class="form-control" aria-describedby="" placeholder="Prediction Period:">
+			<br>
+			<b>Frequency:</b>
+            <input id="frequency" name="frequency" class="form-control" aria-describedby="" placeholder="Frequency:">
+            <br>
+            <b>Recency:</b>
+            <br>
+            <input id="recency" name="recency" class="form-control" aria-describedby="" placeholder="Recency:">
+            <br>
+             <b>Age:</b<br>
+            <input id="T" name="T" class="form-control" aria-describedby="" placeholder="T Value:">
+            <br>
+            <b>Monetary Value:</b<br>
+            <input id="MV" name="MV" class="form-control" aria-describedby="" placeholder="Monetary Value:">
+            <br>
+            <center><input id="modalBtn" class="btn btn-primary" type="submit" value="Predict" /></center>
+</TD>
+<TD width="150">
+</TD>
+
+<TD width="150">
+</TD>
+
+<TD width="350">
+            <b>
+                 {% if score > 0.50 %}
+
+			            <p></p>
+			            <font size="6"; color="green">  Customer Forecast: </font><br>
+			            <font size="5"; color="brown">  Purchase: {{score}}</font><br>
+			            <font size="5"; color="brown">  CLV: {{clv}}</font><br>
+			            <font size="5"; color="brown">  Cluster: {{cluster}}</font><br>
+			        {% elif score == 0 %}
+			            <font color="black"> </font>
+			        {% else %}
+			        	<p></p>
+						<p></p>
+			            <p></p>
+			            <font size="6"; color="green">  Customer Forecast: </font><br>
+			            <font size="6"; color="red">  Purchase: {{score}}</font>
+			            <font size="5"; color="red">  CLV: {{clv}}</font>
+			            <font size="5"; color="red">  Cluster: {{cluster}}</font>
+			        {% endif %}
+
+
+            </b>
+</TD>
+<TR>
+</TABLE>
+
+        </form>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+{% endblock %}
